@@ -1,7 +1,7 @@
 /*
     Author: Trevor Birdsall
     Class: CIS 104
-    Version: 1.0.0
+    Version: 1.0.1
     Purpose: To calculate customer insurance premiums
  */
 
@@ -13,6 +13,13 @@ let policyNum, dueDate, faultNum, custAge, agePRICE, faultPrice, totalPre;
 let custLast, custFirst, custBirth;
 const basePRICE = 100;
 const faultCost = 50;
+const minAge = 15;
+const maxAge = 60;
+const ageOne = 30;
+const ageTwo = 45;
+const priceOne = 20;
+const priceTwo = 10;
+const priceThree = 30;
 
 /**
  * @method
@@ -74,7 +81,7 @@ function setPolicyNumber() {
  * @returns {null}
  */
 function setCustLast() {
-    custLast =PROMPT.question('\nWhat is your last name?');
+    custLast = PROMPT.question('\nWhat is your last name?');
     console.clear();
 }
 
@@ -141,14 +148,14 @@ function setCustBirth() {
 function setCustAge(birth,curYear) {
     let custAge;
     custAge = curYear-birth;
-        if (custAge >= 15 && custAge < 30) {
-            agePRICE = 20;
-        }else if (custAge >= 30 && custAge < 45) {
-            agePRICE = 10;
-        }else if (custAge >= 60) {
-            agePRICE = 30;
+        if (custAge >= minAge && custAge < ageOne) {
+            agePRICE = priceOne;
+        }else if (custAge >= ageOne && custAge <= ageTwo) {
+            agePRICE = priceTwo;
+        }else if (custAge >= maxAge) {
+            agePRICE = priceThree;
         } else (
-            agePRICE = 0
+            agePRICE = 0``
         )
 }
 
